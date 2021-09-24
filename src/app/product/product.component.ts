@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   name: string = "";
   price: number = 0;
   img: string = "";
+  trangthai?:string;
 
   constructor() {
   }
@@ -34,7 +35,8 @@ export class ProductComponent implements OnInit {
   @Output() createPr = new EventEmitter();
 
   create() {
-    let a = new Product(this.name, this.price, this.img)
+    // @ts-ignore
+    let a = new Product(this.name, this.price, this.img,this.checkStatus())
     this.createPr.emit(a);
     this.name = "";
     this.price = 0;
@@ -56,7 +58,8 @@ export class ProductComponent implements OnInit {
 
   @Output() editPr = new EventEmitter();
   edit() {
-    let a =new Product(this.name,this.price,this.img)
+    // @ts-ignore
+    let a =new Product(this.name,this.price,this.img,this.checkStatus())
     this.editPr.emit(a)
 
     // for (let i = 0; i < this.products.length; i++) {
@@ -69,5 +72,12 @@ export class ProductComponent implements OnInit {
     //   }
     // }
 
+  }
+  checkStatus(){
+    if (this.trangthai=='true'){
+      return true;
+    }else {
+      return false;
+    }
   }
 }

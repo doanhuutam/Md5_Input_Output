@@ -11,7 +11,7 @@ export class AppComponent {
   product: Product[] = [];
 
   constructor() {
-    this.product.push(new Product("pet", 112, "https://i.pinimg.com/originals/c6/dc/8c/c6dc8c2764bf1a42b11e97eb095a9593.png"));
+    this.product.push(new Product("pet", 112, "https://i.pinimg.com/originals/c6/dc/8c/c6dc8c2764bf1a42b11e97eb095a9593.png",true));
   }
 
   delete(index: number) {
