@@ -22,9 +22,12 @@ export class AppComponent {
     this.product.push(product);
 
   }
-  edit(name:string,product:Product){
+  // edit( product:Product){
+  //
+  // }
+  edit(product:Product){
     for (let i=0;i<this.product.length;i++){
-      if (this.product[i].name==name){
+      if (this.product[i].name==product.name){
         this.product[i]=product;
       }
     }

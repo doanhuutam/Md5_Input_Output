@@ -19,7 +19,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-@Output()deletePr=new EventEmitter();
+
+  @Output() deletePr = new EventEmitter();
 
   delete(name: string) {
     for (let i = 0; i < this.products.length; i++) {
@@ -29,13 +30,15 @@ export class ProductComponent implements OnInit {
       }
     }
   }
-@Output()createPr=new EventEmitter();
+
+  @Output() createPr = new EventEmitter();
+
   create() {
-    let a =new Product(this.name,this.price,this.img)
+    let a = new Product(this.name, this.price, this.img)
     this.createPr.emit(a);
-    this.name= "";
-    this.price= 0;
-    this.img= "";
+    this.name = "";
+    this.price = 0;
+    this.img = "";
 
   }
 
@@ -50,17 +53,21 @@ export class ProductComponent implements OnInit {
     }
 
   }
-  @Output()editPr=new EventEmitter();
 
-  edit(name: string) {
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].name==name) {
-        this.products[i] = new Product(this.name, this.price, this.img);
-        this.name = '';
-        this.img = '';
-        this.price = 0;
-        return;
-      }
-    }
+  @Output() editPr = new EventEmitter();
+  edit() {
+    let a =new Product(this.name,this.price,this.img)
+    this.editPr.emit(a)
+
+    // for (let i = 0; i < this.products.length; i++) {
+    //   if (this.products[i].name == name) {
+    //     this.products[i] = new Product(this.name, this.price, this.img);
+    //     this.name = '';
+    //     this.img = '';
+    //     this.price = 0;
+    //     return;
+    //   }
+    // }
+
   }
 }
